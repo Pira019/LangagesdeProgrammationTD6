@@ -23,8 +23,11 @@ def partie1():
   #calculer les 20 premiers termes de la suite de Fibonacci
   #1.1
   suite = [fib(i) for i in range(20)] # liste en compréhension
+  #enumerer(suite)
+  #1.2
+  suiteG = (fib(i) for i in range(20))
   #afficher les valeurs calculées
-  enumerer(suite)
+  enumerer(suiteG)
 
  ##Code exécuté --------
 partie1()
