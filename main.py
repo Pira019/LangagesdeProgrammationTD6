@@ -13,11 +13,29 @@ def trace(f):
     return v
   return ftracee
 
+#2.3
+def memo(f):
+	cache = {}
+	def fcache(*t):
+		if(t in cache):
+			#print ("valeur cachee:", str(t))
+			return cache[t]
+		
+		cache[t]=f(*t)
+		#print ("insert in cache:", str(t))
+		return cache[t]
+	return fcache
+
+
 #fonction qui calcule le nième terme de la suite de Fibonacci
 @trace 
+@memo
 def fib(n):
     if (n == 0 or n == 1):
         return n
     return fib(n - 1) + fib(n - 2)
 
-fib(2)
+fib(8)
+#memo(trace(fib(2)))
+
+
