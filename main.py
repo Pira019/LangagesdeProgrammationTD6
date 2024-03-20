@@ -27,8 +27,14 @@ def partie1():
   #1.2
   suiteG = (fib(i) for i in range(20))
   #afficher les valeurs calculées
-  enumerer(suiteG)
+  #enumerer(suiteG)
+  #1.3 
+  suiteMap = map(fib, range(20))
+  #=>map est un générateur
+  enumerer(suiteMap)
 
+# les résultats correspondent généralement à ce que l'on sait sur le fonctionnement de map 
+# La fonction map applique la fonction spécifiée à chaque élément de la séquence spécifiée   
  ##Code exécuté --------
 partie1()
 
