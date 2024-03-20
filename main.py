@@ -8,33 +8,16 @@ def fib(n):
     return fib(n - 1) + fib(n - 2)
 
 
-
-# Affiche les termes de la suite, et indique le temps écoulé
-def enumerer(suite):
-  t = time.time()
-  count = 0
-  for term in suite:
-    dt = (time.time() - t)*1000
-    print (count,":", term, "({temps:.2f} ms)".format(temps=dt))	
-    count +=1 
-
-#fonction partie 1
-def partie1():
-  #calculer les 20 premiers termes de la suite de Fibonacci
-  #1.1
-  suite = [fib(i) for i in range(20)] # liste en compréhension
-  #enumerer(suite)
-  #1.2
-  suiteG = (fib(i) for i in range(20))
-  #afficher les valeurs calculées
-  #enumerer(suiteG)
-  #1.3 
-  suiteMap = map(fib, range(20))
-  #=>map est un générateur
-  enumerer(suiteMap)
-
-# les résultats correspondent généralement à ce que l'on sait sur le fonctionnement de map 
-# La fonction map applique la fonction spécifiée à chaque élément de la séquence spécifiée   
- ##Code exécuté --------
-partie1()
-
+#générateur infini 1.4
+def fibGen(): #génère la suite de fibonacci au complet (générateur infini...)
+    i=0
+    while(True):             
+        yield fib(i)
+        i +=1
+"""
+gen = fibGen()
+ 
+print(next(gen))   
+print(next(gen))   
+print(next(gen))   
+"""
